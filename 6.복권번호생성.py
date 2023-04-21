@@ -1,14 +1,6 @@
-import os
-from random import *
+import os, sys
+from random import randint
 
-
-# # 복권 방법 1
-# print(int(random() * 45) + 1) # 1 ~ 45 이하의 임의의 값 생성
-# # 복권 방법 2
-# print(randrange(1, 46)) # 1~ 46 미만의 임의의 값 생성
-# # 복권 방법 3
-
-# for i in 범위(5nt(randint(1, 45)) # 1~ 46 미만의 임의의 값 생성
 def rand():
     dd=[]
     while True:
@@ -16,9 +8,16 @@ def rand():
         dd = list(set(dd))
         if len(dd)==6:
             break       
-    print(sorted(dd))
+    print(sorted(dd))    
+
+f = open('복권저장.txt','w')
+sys.stdout = f
 
 for i in range(5):
     rand()
-    
+
+sys.stdout = sys.__stdout__
+f.close()
+
+print("복권 생성 완료")
 os.system("pause")
